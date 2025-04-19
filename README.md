@@ -113,5 +113,8 @@ Tech Stack
 - **TestNG Configuration**:  
   The `testng.xml` configuration file is located under folder `src/test/resources`.
 
+- **Test Execution Reports**:  
+  Test execution reports are generated and can be found under the `test-output` folder (apitest_report.html Api test report and apptest_report.html App test report).
+
 
 
