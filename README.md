@@ -25,7 +25,7 @@ Before setting up the framework, ensure you have the following installed:
 ### Installation Steps
 
 1. Clone the repository:
-git clone <repository-url>
+git clone https://github.com/nitishmaxQA/Nitish-Kumar.git
 
 
 2.Configure env. in main/resources/globaldata/test.properties file
@@ -90,15 +90,28 @@ Tech Stack
   - Switching to Java 8 via environment settings, OR
   - Ensuring backward compatibility in your IDE and `pom.xml` (set compiler source/target to 1.8).
   
-### "Project Structure" 
-The project is structured to separate responsibilities:
+### Project Structure Overview
 
--DriverManager handles driver initialization and management.
--Mobile app test classes and BaseTest are under src/test/java/uitest.
--API test and BaseApiTest classes are under src/test/java/apitest.
--Page Object (locator)classes are under src/test/java/pageobject.
--ActionHelper class (where all app user actions are defined) is located under src/main/java/utils.
--API helper utility is organized under src/main/java/apiutils.
--testng.xml can be found under src/test/resources
+- **Driver Management**:  
+  The `DriverManager` class handles **driver initialization** and **management**.
+
+- **Mobile App Tests**:  
+  Mobile app test classes and the `BaseTest` class are located under folder `src/test/java/uitest`.
+
+- **API Tests**:  
+  API test classes and the `BaseApiTest` class are located under folder `src/test/java/apitest`.
+
+- **Page Object Model (Locators)**:  
+  Locator classes (Page Objects) are found under folder `src/test/java/pageobject`.
+
+- **User Actions**:  
+  The `ActionHelper` class, where all app user actions are defined, is located under folder `src/main/java/utils`.
+
+- **API Helper Utilities**:  
+  API helper utilities are located under folder `src/main/java/apiutils`.
+
+- **TestNG Configuration**:  
+  The `testng.xml` configuration file is located under folder `src/test/resources`.
+
 
 
