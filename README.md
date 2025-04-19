@@ -24,8 +24,7 @@ Before setting up the framework, ensure you have the following installed:
 
 ### Installation Steps
 
-###1. Clone the repository:
-git clone https://github.com/nitishmaxQA/Nitish-Kumar.git
+**1. Clone the repository: git clone https://github.com/nitishmaxQA/Nitish-Kumar.git**
 
 ## 1. Configure Environment in `main/resources/globaldata/test.properties` file
 
@@ -36,11 +35,12 @@ git clone https://github.com/nitishmaxQA/Nitish-Kumar.git
 ## 2. How to Run Tests
 
 ### Running Tests with Maven
-- **mvn test
-- **For API tests only run:mvn test -Dtest=apitest.ApiTest
-- **For APP tests only run :mvn test -Dtest=uitest.MonefyTest
-- ** or run testng.xml file
-- **Before API test ,please run mvn package jetty:run as explained in guide https://github.com/swagger-api/swagger-petstore
+• `mvn test`  
+• For API tests only run: `mvn test -Dtest=apitest.ApiTest`  
+• For APP tests only, just run: `mvn test -Dtest=uitest.MonefyTest`  
+• Or run `testng.xml` file  
+• Before API test, please run: `mvn package jetty:run` as explained in the guide: https://github.com/swagger-api/swagger-petstore
+
 
 
 ###### **Approach & Tech Stack**
