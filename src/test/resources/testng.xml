@@ -1,0 +1,20 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="monefySuite">
+    <listeners>
+
+    </listeners>
+
+
+    <test name="monefyTest">
+        <classes>
+            <class name="uitest.MonefyTest"/>
+
+        </classes>
+    </test>
+
+    <test name="API Tests">
+        <classes>
+            <class name="apitest.ApiTest"/>
+        </classes>
+    </test>
+</suite>
