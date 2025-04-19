@@ -67,16 +67,19 @@ Before setting up the framework, ensure you have the following installed:
 - The framework supports both positive and negative API scenarios.
 - The solution is lightweight, modular, and fully integrated within the existing Maven/TestNG structure for easy execution and reporting.
 
-## Tech Stack
+## Tech Stack Selection
+I chose this tech stack to provide a robust, scalable, and efficient solution for mobile and API testing:
 
-- **Selenium**: For element interaction (used internally with Appium).
-- **Java**: As the programming language.
-- **Appium**: For Android/iOS native and hybrid app testing.
-- **TestNG**: Test runner for managing test cases and reports.
-- **ExtentReports**: For detailed and customizable test reporting.
-- **Maven**: For project build, dependency management, and automation.
-- **Page Object Model (POM)**: A design pattern that enhances test code structure and maintenance.
-- **RestAssured**: For REST API automation (validation, assertions) and ExtentReports reporting.
+- **Selenium**: Reliable for element interaction, seamlessly integrated with **Appium** for mobile automation.
+- **Java**: A versatile and widely-supported language that ensures high performance and compatibility across tools.
+- **Appium**: Ideal for cross-platform testing of native and hybrid mobile apps on both Android and iOS.
+- **TestNG**: Perfect for managing test cases, supporting parallel execution, and generating comprehensive reports.
+- **ExtentReports**: Provides rich, customizable test reports, enhancing visibility and ease of analysis.
+- **Maven**: Simplifies build automation and dependency management, ensuring a consistent and organized project setup.
+- **Page Object Model (POM)**: Enhances code maintainability by separating test scripts from UI elements, promoting reusability and easier updates.
+- **RestAssured**: Efficient for automating REST API testing, offering easy validation, assertions, and integration with ExtentReports for detailed reporting.
+
+This stack ensures efficient testing, long-term maintainability, and scalability across both mobile and API test automation.
 
 
 ### Java Compatibility
