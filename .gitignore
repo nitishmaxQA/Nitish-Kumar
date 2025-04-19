@@ -1,0 +1,21 @@
+# Ignore Maven build folder
+target/
+
+# Ignore IDE-specific folders
+.idea/
+.vscode/
+*.iml
+
+# Ignore OS-generated files
+.DS_Store
+Thumbs.db
+
+# Ignore log files
+*.log
+
+# Ignore compiled Java class files
+*.class
+
+# Ignore temporary files
+*.tmp
+*.swp
