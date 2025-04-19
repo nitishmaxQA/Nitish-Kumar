@@ -24,29 +24,23 @@ Before setting up the framework, ensure you have the following installed:
 
 ### Installation Steps
 
-1. Clone the repository:
+###1. Clone the repository:
 git clone https://github.com/nitishmaxQA/Nitish-Kumar.git
 
+## 1. Configure Environment in `main/resources/globaldata/test.properties` file
 
-2.Configure env. in main/resources/globaldata/test.properties file
--Platform (Android in for implemented app tests)
--ANDROID_HOME path (if not already set in system)
--APPIUM JS file path
--app.package (no need to change)
--app.activity(no need to change)
--jsonFilePath (for api automation, request body)
--base_url and endpoints (for api automation)
-
-Install dependencies using Maven:
-mvn clean install
-
-3.Right-click on testng.xml to run, or use mvn test 
-For API tests only run:mvn test -Dtest=apitest.ApiTest
-For APP tests only run :mvn test -Dtest=uitest.MonefyTest
+- **ANDROID_HOME**: Specify the `ANDROID_HOME` path (if not already set in your system).
+- **APPIUM JS File Path**: 
 
 
-— The Appium server will start automatically via the code, so you do not need to start it manually.
--Before API test ,please run mvn package jetty:run as explained in guide https://github.com/swagger-api/swagger-petstore
+## 2. How to Run Tests
+
+### Running Tests with Maven
+- **mvn test
+- **For API tests only run:mvn test -Dtest=apitest.ApiTest
+- **For APP tests only run :mvn test -Dtest=uitest.MonefyTest
+- ** or run testng.xml file
+- **Before API test ,please run mvn package jetty:run as explained in guide https://github.com/swagger-api/swagger-petstore
 
 
 ###### **Approach & Tech Stack**
@@ -73,15 +67,17 @@ For APP tests only run :mvn test -Dtest=uitest.MonefyTest
 - The framework supports both positive and negative API scenarios.
 - The solution is lightweight, modular, and fully integrated within the existing Maven/TestNG structure for easy execution and reporting.
 
-Tech Stack
-	•	Selenium for Element interaction (used internally with Appium)
-	•	Java as the programming language
-	•	Appium for Android/iOS native and hybrid app testing
-	•	TestNG:Test runner for managing test cases and reports.
-	•	ExtentReports: For detailed and customizable test reporting.
-	•	Maven: For project build, dependency management, and automation.
-	•	Page Object Model (POM): A design pattern that enhances test code structure and maintenance.
-	•	RestAssured for REST API automation (validation and assertions) and ExtentReports reporting.
+## Tech Stack
+
+- **Selenium**: For element interaction (used internally with Appium).
+- **Java**: As the programming language.
+- **Appium**: For Android/iOS native and hybrid app testing.
+- **TestNG**: Test runner for managing test cases and reports.
+- **ExtentReports**: For detailed and customizable test reporting.
+- **Maven**: For project build, dependency management, and automation.
+- **Page Object Model (POM)**: A design pattern that enhances test code structure and maintenance.
+- **RestAssured**: For REST API automation (validation, assertions) and ExtentReports reporting.
+
 
 ### Java Compatibility
 
