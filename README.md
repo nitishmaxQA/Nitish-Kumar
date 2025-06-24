@@ -4,6 +4,7 @@
 
 This project is a cross-platform **UI and API test automation framework** designed for **iOS/Android mobile applications** and **REST APIs**.  
 It follows the **Page Object Model (POM)** design pattern to ensure better maintainability, scalability, and readability.
+The test class performs test on Amazon android App, searching iPhone16 and verifying price of product from search results.
 
 
 ##  Setup
@@ -36,13 +37,14 @@ git clone <repository-url>
 -app.activity(no need to change)
 -jsonFilePath (for api automation, request body)
 -base_url and endpoints (for api automation)
+-Install Amazon app
 
 Install dependencies using Maven:
 mvn clean install
 
 3.Right-click on testng.xml to run, or use mvn test 
 For API tests only run:mvn test -Dtest=apitest.ApiTest
-For APP tests only run :mvn test -Dtest=uitest.MonefyTest
+For APP tests only run :mvn test -Dtest=uitest.AmazonTest
 
 
 — The Appium server will start automatically via the code, so you do not need to start it manually.

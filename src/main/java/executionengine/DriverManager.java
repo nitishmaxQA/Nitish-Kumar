@@ -93,6 +93,7 @@ public class DriverManager {
         UiAutomator2Options options = new UiAutomator2Options();
         options.setAppActivity(Configreader.get("app.activity"));
         options.setAppPackage(Configreader.get("app.package"));
+        options.setNoReset(false);
         options.setCapability("appium:logLevel", "error");
 
         driver = new AndroidDriver(service.getUrl(), options);

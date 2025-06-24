@@ -7,7 +7,7 @@
 
     <test name="monefyTest">
         <classes>
-            <class name="uitest.MonefyTest"/>
+            <class name="uitest.AmazonTest"/>
 
         </classes>
     </test>

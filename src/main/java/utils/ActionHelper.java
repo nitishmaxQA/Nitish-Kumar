@@ -1,5 +1,6 @@
 package utils;
 
+import com.google.common.collect.ImmutableMap;
 import config.Configreader;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
@@ -7,11 +8,15 @@ import io.appium.java_client.android.nativekey.AndroidKey;
 import io.appium.java_client.android.nativekey.KeyEvent;
 import io.appium.java_client.ios.IOSDriver;
 import org.openqa.selenium.*;
+import org.openqa.selenium.remote.RemoteWebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.lang.reflect.Field;
 import java.time.Duration;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.Random;
 import java.util.logging.Logger;
 
@@ -73,7 +78,7 @@ public class ActionHelper {
     }
 
     // Pause the execution for specified seconds
-    public static void gotoSleep(int milliSeconds) {
+    public void gotoSleep(int milliSeconds) {
         try {
             Thread.sleep(milliSeconds);
         } catch (InterruptedException e) {
@@ -171,5 +176,92 @@ public class ActionHelper {
         } else {
             throw new IllegalStateException("Unknown platform type.");
         }
+    }
+    public  void fill(By by, String input) {
+        try {
+            if (input.length() < 1)
+                return;
+//		System.out.println(DriverManager.getDriver().getAutomationName());
+            getWrappedElement(by).sendKeys(input);
+
+
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+    }
+    public  WebElement getWrappedElement(By by) {
+        return waitUntilPresenceOfElement(by);
+    }
+
+    // Wait until an element is present in the DOM and return it
+    public WebElement waitUntilPresenceOfElement(By by) {
+        String className = by.getClass().getSimpleName();
+        String value = getFieldValue(by);
+        try {
+            logger.info("Waiting for presence of element [" + className + " = " + value + "]");
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+            WebElement element = wait.until(ExpectedConditions.presenceOfElementLocated(by));
+            logger.info("Element present [" + className + " = " + value + "]");
+            return element;
+        } catch (TimeoutException e) {
+            String errorString = "Timed out waiting for presence of element [" + className + " = " + value + "]";
+            logger.warning(errorString);
+            throw new NoSuchElementException(errorString);
+        }
+    }
+
+    // Fetch all visible price elements
+    public  List<WebElement> findElements(By by) {
+        logger.info("Finding elements [" + by.getClass().getSimpleName() + " = " + getFieldValue(by) + "]");
+        List<WebElement> elements = driver.findElements(by);
+        return elements;
+    }
+
+    public void H5scroll() {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
+    }
+
+
+    public void ScrollToEnd(String direction, double percent) {
+        boolean canScrollMore;
+        do {
+            canScrollMore = (Boolean) ((JavascriptExecutor) driver).executeScript("mobile: scrollGesture", ImmutableMap.of(
+                    "left", 100, "top", 100, "width", 200, "height", 200,
+                    "direction", direction,
+                    "percent", percent
+            )
+            );
+        } while (canScrollMore);
+    }
+
+    public void scrollDown() {
+        Dimension dimensions = driver.manage().window().getSize();
+        int screenWidth = dimensions.getWidth();
+        int screenHeight = dimensions.getHeight();
+        int left = screenWidth / 10;
+        int top = (int) (screenHeight * 0.40);
+        int width = screenWidth - (2 * left);
+        int height = (int) (screenHeight * 0.70);
+        ((JavascriptExecutor) driver).executeScript("mobile: scrollGesture", Map.of(
+                "left", left,
+                "top", top,
+                "width", width,
+                "height", height,
+                "direction", "down",
+                "percent", 0.75
+        ));
+    }
+
+
+    public  void scrollOnetime (){
+        ((JavascriptExecutor) driver).executeScript("mobile: scrollGesture", Map.of(
+                "left", 100,
+                "top", 100,
+                "width", 800,
+                "height", 1000,
+                "direction", "down",
+                "percent", 0.75
+        ));
     }
 }
