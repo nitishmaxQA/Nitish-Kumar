@@ -96,7 +96,7 @@ public class DriverManager {
         options.setNoReset(false);
         options.setCapability("appium:logLevel", "error");
 
-        driver = new AndroidDriver(service.getUrl(), options);
+        driver = new AndroidDriver(service.getUrl(), String.valueOf(options));
         logger.info("Android driver initialized.");
     }
 
@@ -107,9 +107,14 @@ public class DriverManager {
         XCUITestOptions options = new XCUITestOptions()
                 .setDeviceName(Configreader.get("deviceName"))
                 .setBundleId(Configreader.get("bundle.id"))
-                .setPlatformVersion(Configreader.get("platform.version"));
+                .setPlatformVersion(Configreader.get("platform.version"))
+                .setPlatformName("iOS")
+                //.setUdid(Configreader.get("udid")) // enable when real device is available 
+                .setAutomationName("XCUITest")
+                .setNoReset(true)
+                .setNewCommandTimeout(Duration.ofSeconds(300));
 
-        driver = new IOSDriver(service.getUrl(), options);
+        driver = new IOSDriver(service.getUrl(),  options);
         logger.info("iOS driver initialized.");
     }
 

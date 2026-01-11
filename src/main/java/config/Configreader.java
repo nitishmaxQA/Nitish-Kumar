@@ -47,4 +47,5 @@ public class Configreader {
         return properties.getProperty("jsonFilePath");
     }
 
+
 }

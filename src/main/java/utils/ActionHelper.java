@@ -93,7 +93,7 @@ public class ActionHelper {
     }
 
     // Retrieve internal value from a By locator using reflection
-    public static String getFieldValue(By by) {
+  /*  public static String getFieldValue(By by) {
         String value = "";
         try {
             Field field = by.getClass().getDeclaredFields()[0];
@@ -103,6 +103,11 @@ public class ActionHelper {
             e.printStackTrace();
         }
         return value;
+    }
+    */
+
+    public static String getFieldValue(By by) {
+        return by.toString();
     }
 
     // Wait until an element is clickable and return it
